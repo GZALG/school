@@ -1,0 +1,14 @@
+#right
+{
+    float: right;
+}
+#login table tr
+{
+    background-color: skyblue;
+    width:auto;
+}
+#login
+{
+    margin-left: 40%;
+    margin-top: 15%;
+}
