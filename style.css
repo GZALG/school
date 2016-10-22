@@ -2,13 +2,11 @@
 {
     float: right;
 }
-#login table tr
-{
-    background-color: skyblue;
-    width:auto;
-}
+
 #login
 {
-    margin-left: 40%;
+    margin-left: 35%;
     margin-top: 15%;
+    background-color: skyblue;
+    width:auto;
 }

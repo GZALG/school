@@ -9,21 +9,36 @@
 <body>
 <?php require_once("header.php");?>
 <?php require_once("nav.php");?>
-<div id="login">
-    <form action="index.php" method="post">
-    <table border="0">
-    <tr>
-        <td>Name : </td><td><input type="text" autocomplete="on"></input></td>
-    </tr>
-    <tr>
-        <td>Password : </td><td><input type="password" autocomplete="on"></input></td>
-    </tr>
-    <tr>
-        <td><input type="submit" value="Log In" class="btn btn-info"></input></td><td><input type="reset" value="Cancel" class="btn btn-info"></input></td>
-    </tr>
-    </table>
-</form>
-</div>
+    <form method="post">
+        <table id="login">
+            <tr>
+                <td>Name : </td><td><input type="text" name="name"></input></td>
+            </tr>
+            <tr>
+                <td>Password : </td><td><input type="password" name="pw"></input></td>
+            </tr>
+            <tr>
+            <td><input type="submit" name="submit" class="btn btn-default" value="Log In"/></td><td><input type="reset" name="reset" class="btn btn-default" value="Cancel"/></td>
+            </tr>
+        </table>
+    <?php
+    if(isset($_POST['submit']))
+    {
+        if(($_POST['name']==="admin")&&($_POST['pw']==="admin"))
+        {
+            $p = new Person();
+            $_SESSION['person'] = serialize($p);
+            $p->logIn($p);
+        }
+        else
+        {
+            ?>
+            <script>alert("Wrong identification");</script>
+            <?php
+        }
+    }
+    ?>
+    </form>
 <?php require_once("footer.php");?>
 </body>
 </html>
